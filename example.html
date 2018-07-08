@@ -68,6 +68,9 @@ $('#countdown').timeTo({
 
     <div id="countdown-3"></div>
 
+    <h3>Set width and heigth without fontSize</h3>
+    <div id="countdown-4"></div>
+    
     <p>&nbsp;</p>
     <h2>Digital clock</h2>
     <pre>
@@ -158,6 +161,25 @@ $('#clock-1').timeTo();</pre>
 			},
 			lang: 'pl'
         });
+
+	/**
+         * Set width and height without fontSize
+         */
+        $('#countdown-4').timeTo({
+            time: new Date('2017-07-30T23:59:45'),
+            countdown: false,
+            displayDays: 2,
+            theme: "black",
+            displayCaptions: true,
+	    width: 40,
+	    height: 80, 
+            captionSize: 14,
+			languages: {
+				pl: {days: 'dni', hours: 'godziny', min: 'minuty', sec: 'secundy'}
+			},
+			lang: 'pl'
+        });
+
 
         /**
          * Simple digital clock

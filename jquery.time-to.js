@@ -232,12 +232,16 @@
                 data = $.extend(defs, opt);
                 data.options = opt;
 
-                data.height = Math.round((data.fontSize * 100) / 93) || data.height;
-                data.width = Math.round((data.fontSize * 0.8) + (data.height * 0.13)) || data.width;
+		if (data.fontSize > 0) {
+                    data.height = Math.round((data.fontSize * 100) / 93);
+                    data.width = Math.round((data.fontSize * 0.8) + (data.height * 0.13));
+		}
+
                 data.displayHours = !!(data.displayDays || data.displayHours);
 
                 css = {
-                    fontFamily: data.fontFamily
+                    fontFamily: data.fontFamily,
+		    height: 'auto'
                 };
                 if (data.fontSize > 0) {
                     css.fontSize = data.fontSize + 'px';
@@ -249,14 +253,13 @@
                     .addClass('timeTo-' + data.theme)
                     .css(css);
 
-                left = Math.round(data.height / 10);
-                ulhtml = '<ul style="left:' + left + 'px; top:-' + data.height + 'px"><li>0</li><li>0</li></ul></div>';
-                style = data.fontSize
-                    ? ' style="width:' + data.width + 'px; height:' + data.height + 'px;"'
-                    : ' style=""';
+                //left = Math.round(data.height / 10);
+		var li = '<li style="width: ' + data.width + 'px;line-height: ' + data.height + 'px;">0</li>';
+                ulhtml = '<ul style="text-align: center;top:-' + data.height + 'px">' + li + li + '</ul></div>';
+                style = ' style="width:' + data.width + 'px; height:' + data.height + 'px;"';
                 dhtml1 = '<div class="first"' + style + '>' + ulhtml;
                 dhtml2 = '<div' + style + '>' + ulhtml;
-                dot2 = '<span>:</span>';
+                dot2 = '<span style="line-height:' + data.height + 'px">:</span>';
                 maxWidth = Math.round((data.width * 2) + 3);
                 captionSize = data.captionSize || (data.fontSize && Math.round(data.fontSize * 0.43));
                 fsStyleVal = captionSize ? 'font-size:' + captionSize + 'px;' : '';

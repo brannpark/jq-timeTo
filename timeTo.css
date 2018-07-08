@@ -83,8 +83,6 @@ figure, figcaption {
 .timeTo div {
 	position: relative;
 	display: inline-block;
-	width: 25px;
-	height: 30px;
 	border-top: 1px solid silver;
 	border-right: 1px solid silver;
 	border-bottom: 1px solid silver;
@@ -99,7 +97,6 @@ figure, figcaption {
 	margin: 0;
 	padding: 0;
 	position: absolute;
-	left: 3px;
 }
 
 .timeTo ul li {
